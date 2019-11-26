@@ -1,6 +1,9 @@
 #shuttleBackground {
     background-color: green;
     display: inline-block;
-    height: 80%;
+    height: 60%;
     width: 40%;
+}
+#rocket {
+    padding: 100 auto 0 auto;
 }
