@@ -21,29 +21,45 @@ function init() {
     left = document.getElementById("left");
     status = document.querySelector("#flightStatus");
     height = document.querySelector("#spaceShuttleHeight");
+    background = document.getElementById("shuttleBackground");
+    let inFlight;
     
 button.addEventListener("click", function(event) {
     let goShuttle = confirm("Confirm that the shuttle is ready for takeoff.");
     if(goShuttle === true) {
         status.innerHTML = ("Shuttle in flight.");
-        document.getElementById("shuttleBackground").style.background = "blue";
+        background.style.background = "blue";
         height.innerHTML = 10000;
-        landing.addEventListener("click", function(event) {
+        inFlight = true;
+        /*landing.addEventListener("click", function(event) {
             alert("The shuttle is landing. Landing gear engaged.");
             status.innerHTML = ("The shuttle has landed.");
-            document.getElementById("shuttleBackground").style.background = "green";
-            height.innerHTML = 0;
-        })
+            background.style.background = "green";
+            height.innerHTML = 0;*/
     } else if (goShuttle === false) {
-        landing.addEventListener("click", function(event) {
+        /*landing.addEventListener("click", function(event) {
         alert("The shuttle did not takeoff.");
-        })
+        })*/
+        inFlight = false;
     }
 })
+
+landing.addEventListener("click", function(event) {
+    if (inFlight === true) {
+        alert("The shuttle is landing. Landing gear engaged.");
+        status.innerHTML = ("The shuttle has landed.");
+        background.style.background = "green";
+        height.innerHTML = 0
+    } else {
+        alert("The shuttle did not takeoff.")
+    }
+})
+
+
 missionAbort.addEventListener("click", function(event) {
     if(confirm("Confirm that you want to abort the mission.")) {
         status.innerHTML = ("Mission aborted.");
-        document.getElementById("shuttleBackground").style.background = "green";
+        background.style.background = "green";
         height.innerHTML = 0;
     }
 })
