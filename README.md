@@ -1,6 +1,6 @@
 # DOM-and-Events-Studio
 
-LC101 assignment to demonstrate 
+LC101 assignment to demonstrate event handling
 
 ## Technologies
 
